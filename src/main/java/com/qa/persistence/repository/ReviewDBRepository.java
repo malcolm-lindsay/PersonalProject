@@ -11,19 +11,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import com.qa.persistence.domain.Reviews;
 import com.qa.util.JSONUtil;
 
-//@Transactional(SUPPORTS)
-//@Default
+@Transactional(SUPPORTS)
+@Default
 public class ReviewDBRepository implements ReviewRepository {
+	
+	@PersistenceContext(unitName = "primary")
+	private EntityManager manager;
+	
+	@Inject
+	private JSONUtil util;
 
 	@Override
 	public String getAllReviews() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = manager.createQuery("Select a FROM Reviews a");
+		Collection<Reviews> Reviews = (Collection<Reviews>) query.getResultList();
+		return util.getJSONForObject(Reviews);
 	}
+
 
 	@Override
 	public String createReview(Long userID, Long recipeID, String review) {

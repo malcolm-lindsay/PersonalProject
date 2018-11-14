@@ -9,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import com.qa.service.business.RecipeService;
-import com.qa.service.business.ReviewService;
 
 @Path("/Recipes")
 public class RecipesEndpoint {
@@ -23,19 +22,24 @@ public class RecipesEndpoint {
 	@Produces({ "application/json" })
 	public String getAllRecipes() {
 		return service.getAllRecipes();
-
+	}
+	
+	@Path("/createRecipe")
+	@POST
+	@Produces({ "application/json" })
+	public String createReview(String recipe) {
+		return service.createRecipe(recipe);
+	}
+	
+	@Path("/deleteRecipe/{id}")
+	@DELETE
+	@Produces({ "application/json" })
+	public String deleteRecipe(@PathParam("recipeID") Long recipeID) {
+		return service.deleteRecipe(recipeID);
+	}
 		
-//	@Path("/createRecipe")
-//	@POST
-//	@Produces({ "application/json" })
-//	String createRecipe(String recipe) {
-//		return service.createRecipe(recipe);
-//	}	
-//		
 
 //	String updateRecipe(Long recipeID, String newRecipe);
 //
-//	String deleteRecipe(Long recipeID);
 
-}
 }

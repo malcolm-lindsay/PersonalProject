@@ -9,7 +9,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import com.qa.service.business.ReviewService;
-import com.qa.service.business.UserService;
 
 @Path("/Reviews")
 public class ReviewsEndpoint {
@@ -39,9 +38,7 @@ public class ReviewsEndpoint {
 		return service.deleteReview(userID, userID);
 	}
 
-//	String getAllReviews();
-//
-//	String createReview(Long userID, Long recipeID, String review);
+
 //		
 //	String EditReview(Long userID, Long recipeID, String updatedReview);
 //

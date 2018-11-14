@@ -13,6 +13,32 @@ import com.qa.service.business.UserService;
 @Path("/Users")
 public class UserEndpoint {
 
+	@Inject 
+	private UserService service; 
 	
+	@Path("/getAllUsers")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllUsers() {
+		return service.getAllUsers();
+	}
+	
+	@Path("/addUser")
+	@POST
+	@Produces({ "application/json" })
+	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
+			String country, String city, String emailAddress, int yearOfBirth) {
+		return service.addUser(userID, firstName, secondName, dietryRequirements,country, city, emailAddress, yearOfBirth);
+	}
+	
+	@Path("/deleteUser/{id}")
+	@DELETE
+	@Produces({ "application/json" })
+	public String deleteser(@PathParam("userID") Long userID) {
+		return service.deleteUser(userID);
+	}
+	 
+	
+//	String updateUser(Long userID);
 
 }

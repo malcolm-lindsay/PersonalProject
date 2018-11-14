@@ -4,35 +4,31 @@ import javax.inject.Inject;
 
 import org.apache.log4j.Logger;
 
-import com.qa.persistence.repository.RecipeRepository;
+import com.qa.persistence.repository.ReviewDBRepository;
 
 public class ReviewServiceImpl implements ReviewService {
 
+	@Inject
+	ReviewDBRepository repo; 
+	
 	@Override
 	public String getAllReviews() {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.getAllReviews();
 	}
 
 	@Override
 	public String createReview(Long userID, Long recipeID, String review) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.createReview(userID, recipeID, review);
 	}
 
 	@Override
 	public String EditReview(Long userID, Long recipeID, String updatedReview) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.EditReview(userID, recipeID, updatedReview);
 	}
 
 	@Override
 	public String deleteReview(Long userID, Long recipeID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
+		return repo.deleteReview(userID, recipeID);
 	
+	}
 }

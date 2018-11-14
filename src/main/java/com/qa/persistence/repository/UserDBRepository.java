@@ -23,9 +23,8 @@ public class UserDBRepository implements UserRepository {
 	}
 
 	@Override
-	public String createUser(Long userID, String firstName, String secondName, String dietryRequirements,
+	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
 			String country, String city, String emailAddress, int yearOfBirth) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

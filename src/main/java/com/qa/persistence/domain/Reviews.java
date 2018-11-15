@@ -18,6 +18,7 @@ public class Reviews {
 	private int yearOfReview;
 	@Column(length = 10)
 	private Long rating;
+	
 	@Column(name = "userID")
 	private Long userID;
 	@Column(name = "recipeID")

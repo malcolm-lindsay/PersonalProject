@@ -16,8 +16,10 @@ import javax.persistence.OneToMany;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	@Column(name = "userID")
 	private Long userID;
+	
 	@Column(length = 10)
 	private String firstName;
 	private String secondName;
@@ -26,6 +28,7 @@ public class User {
 	private String City;
 	private String EmailAddress;
 	private int yearOfBirth;
+	
 	@JoinColumn(name ="userID", referencedColumnName = "userID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Reviews> reviews;
@@ -118,6 +121,4 @@ public class User {
 	public void setReviews(List<Reviews> reviews) {
 		this.reviews = reviews;
 	}
-	
-	
 }

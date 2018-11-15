@@ -18,6 +18,7 @@ public class Recipes {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	@Column(name = "recipe")
 	private Long RecipeID;
 	@Column(length = 10)
 	private String RecipeType;
@@ -29,6 +30,7 @@ public class Recipes {
 	private int ServingSize;
 	@Column(length = 10)
 	private String RecipeInstructions;	
+	
 	@JoinColumn(name ="RecipeID", referencedColumnName = "RecipeID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Reviews> reviews;

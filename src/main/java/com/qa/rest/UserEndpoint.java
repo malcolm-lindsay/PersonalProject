@@ -31,6 +31,22 @@ public class UserEndpoint {
 		return service.addUser(userID, firstName, secondName, dietryRequirements,country, city, emailAddress, yearOfBirth);
 	}
 	
+//	{ 
+//	"userID" : 1, 
+//	"firstName": Joseph, 
+//	"secondName": Ware,
+//	"dietryRequirements": Vegan, 
+//	"country": UK, 
+//	"city": Shepton Mallet, 
+//	"emailAddress": saddfsdf, 
+//	"yearOfBirth": 1994)  
+//	}
+
+
+
+	
+	
+	
 	@Path("/deleteUser/{id}")
 	@DELETE
 	@Produces({ "application/json" })
@@ -41,4 +57,6 @@ public class UserEndpoint {
 	
 //	String updateUser(Long userID);
 
+	
+	
 }

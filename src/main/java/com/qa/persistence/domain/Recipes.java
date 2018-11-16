@@ -18,7 +18,7 @@ public class Recipes {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	@Column(name = "recipe")
+	@Column(name = "recipeID")
 	private Long RecipeID;
 	@Column(length = 10)
 	private String RecipeType;
@@ -31,7 +31,7 @@ public class Recipes {
 	@Column(length = 10)
 	private String RecipeInstructions;	
 	
-	@JoinColumn(name ="RecipeID", referencedColumnName = "RecipeID")
+	@JoinColumn(name ="recipeID", referencedColumnName = "recipeID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Reviews> reviews;
 	

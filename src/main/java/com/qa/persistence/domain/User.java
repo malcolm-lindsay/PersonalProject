@@ -1,4 +1,3 @@
-
 package com.qa.persistence.domain;
 
 import java.util.List;
@@ -24,7 +23,7 @@ public class User {
 	@Column(length = 10)
 	private String firstName;
 	private String secondName;
-	private String DietryRequirements;
+	private String dietryRequirements;
 	private String Country;
 	private String City;
 	private String EmailAddress;
@@ -44,10 +43,10 @@ public class User {
 		this.userID = userID;
 		this.firstName = firstName;
 		this.secondName = secondName;
-		DietryRequirements = dietryRequirements;
-		Country = country;
-		City = city;
-		EmailAddress = emailAddress;
+		this.dietryRequirements = dietryRequirements;
+		this.Country = country;
+		this.City = city;
+		this.EmailAddress = emailAddress;
 		this.yearOfBirth = yearOfBirth;
 	}
 
@@ -76,11 +75,11 @@ public class User {
 	}
 
 	public String getDietryRequirements() {
-		return DietryRequirements;
+		return dietryRequirements;
 	}
 
 	public void setDietryRequirements(String dietryRequirements) {
-		DietryRequirements = dietryRequirements;
+		dietryRequirements = dietryRequirements;
 	}
 
 	public String getCountry() {

@@ -31,7 +31,7 @@ public class User {
 	
 	@JoinColumn(name ="userID", referencedColumnName = "userID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Reviews> reviews;
+	private List<Review> reviews;
 	
 	public User() {
 
@@ -114,11 +114,11 @@ public class User {
 		this.yearOfBirth = yearOfBirth;
 	}
 
-	public List<Reviews> getReviews() {
+	public List<Review> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Reviews> reviews) {
+	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 }

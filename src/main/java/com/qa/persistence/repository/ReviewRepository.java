@@ -4,10 +4,10 @@ public interface ReviewRepository {
 
 	String getAllReviews();
 
-	String createReview(Long userID, Long recipeID, String review);
+	String createReview(String review);
 		
-	String EditReview(Long userID, Long recipeID, String updatedReview);
+	String deleteReview(Long reviewID);
 
-	String deleteReview(Long userID, Long recipeID);
+	String EditReview(Long reviewID, String updatedReview);
 
 }

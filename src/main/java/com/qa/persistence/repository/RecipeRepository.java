@@ -6,7 +6,7 @@ public interface RecipeRepository {
 
 	String createRecipe(String recipe);
 
-	String updateRecipe(Long recipeID, String newRecipe);
+	String updateRecipe(Long recipeID, String updatedRecipe);
 
 	String deleteRecipe(Long recipeID);
 

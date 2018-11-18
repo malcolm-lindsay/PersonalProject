@@ -12,7 +12,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persistence.domain.Recipes;
+import com.qa.persistence.domain.Recipe;
+import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
@@ -28,31 +29,37 @@ public class RecipeDBRepository implements RecipeRepository {
 	@Override
 	public String getAllRecipes() {
 		Query query = manager.createQuery("Select a FROM Recipe a");
-		Collection<Recipes> recipes = (Collection<Recipes>) query.getResultList();
+		Collection<Recipe> recipes = (Collection<Recipe>) query.getResultList();
 		return util.getJSONForObject(recipes);
 	}
+	
+	//^add logger
 	
 	@Override
 	@Transactional(REQUIRED)
 	public String createRecipe(String recipe) {
-		Recipes aRecipe = util.getObjectForJSON(recipe, Recipes.class);
+		Recipe aRecipe = util.getObjectForJSON(recipe, Recipe.class);
 		manager.persist(aRecipe);
 		return "{\"message\": \"Recipe has been successfully added\"}";
 	}
 	
+
 	
 	@Override
-	public String updateRecipe(Long recipeID, String newRecipe) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String updateRecipe(Long recipeID, String updatedRecipe) {
+		Recipe newRecipe = util.getObjectForJSON(updatedRecipe, Recipe.class);
+		Recipe oldRecipe = manager.find(Recipe.class, recipeID);
+		return "{\"message\": \"Recipe sucessfully updated\"}";
 	}
+	
 
 	
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteRecipe(Long recipeID) {
-		if (manager.find(Recipes.class, recipeID) != null) {
-			manager.remove(manager.find(Recipes.class, recipeID));
+		if (manager.find(Recipe.class, recipeID) != null) {
+			manager.remove(manager.find(Recipe.class, recipeID));
 			return "{\"message\": \"Recipe sucessfully deleted\"}";
 		} else
 			return "{\"message\": \"Recipe not found\"}";

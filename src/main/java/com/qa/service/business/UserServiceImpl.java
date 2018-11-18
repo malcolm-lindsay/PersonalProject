@@ -17,14 +17,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int yearOfBirth)  {
-		return repo.addUser(userID, firstName, secondName, dietryRequirements, country, city, emailAddress, yearOfBirth);
+	public String addUser(String user) {
+		return repo.addUser(user);
 	}
-
+	
 	@Override
-	public String updateUser(Long userID) {
-		return repo.updateUser(userID);
+	public String updateUser(Long userID, String user) {
+		return repo.updateUser(userID, user);
 	}
 
 	@Override

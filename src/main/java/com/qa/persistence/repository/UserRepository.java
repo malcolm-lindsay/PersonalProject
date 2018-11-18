@@ -4,13 +4,10 @@ public interface UserRepository {
 
 	String getAllUsers();
 
-	String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int yearOfBirth);
+	String addUser(String user);
 
-	String updateUser(Long userID);
+	String updateUser(Long id, String User);
 
 	String deleteUser(Long userID);
 
-	//methods arguments need to be updated
-	
 }

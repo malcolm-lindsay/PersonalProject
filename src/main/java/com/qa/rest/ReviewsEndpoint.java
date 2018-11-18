@@ -27,15 +27,15 @@ public class ReviewsEndpoint {
 	@Path("/createReview")
 	@POST
 	@Produces({ "application/json" })
-	public String createReview(Long userID, Long recipeID, String review) {
-		return service.createReview(userID, recipeID, review);
+	public String createReview(String review) {
+		return service.createReview(review);
 	}
 	
 	@Path("/deleteReview/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteReview(@PathParam("userID") Long userID) {
-		return service.deleteReview(userID, userID);
+	public String deleteReview(@PathParam("id") Long reviewID) {
+		return service.deleteReview(reviewID);
 	}
 	//^ this method needs to be checked
 

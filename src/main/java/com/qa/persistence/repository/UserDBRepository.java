@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.qa.persistence.domain.Recipe;
 import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
@@ -31,16 +32,44 @@ public class UserDBRepository implements UserRepository {
 		return util.getJSONForObject(User);
 	}
 	
-	@Override
-	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int yearOfBirth) {
-		return null;
-	}
 
+	
+//	@Override
+//	@Transactional(REQUIRED)
+//	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
+//			String country, String city, String emailAddress, int yearOfBirth) {
+//		User aUser = util.getObjectForJSON(user, Recipe.class);
+//		manager.persist(user);
+//		return "{\"message\": \"Recipe has been successfully added\"}";
+//	}
+	
+//	For testing: 
+//	{
+//	"userID": 1,
+//	"firstName": "Malcolm",
+//	"secondName":"Lindsay",
+//	"dietryRequirements":"none",
+//	"country":"UK",
+//	"city":"UK", 
+//	emailAddress:"malcolm",
+//	"yearOfBirth": 1996
+//	}
+	
 	@Override
-	public String updateUser(Long userID) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String addUser(String user) {
+		User aUser = util.getObjectForJSON(user, User.class);
+		manager.persist(user);
+		return "{\"message\": \"User has been successfully added\"}";
+	}
+	
+	
+	@Override
+	@Transactional(REQUIRED)
+	public String updateUser(Long userID, String user) {
+		User newUser = util.getObjectForJSON(user, User.class);
+		User oldUser = manager.find(User.class, userID);
+		return "{\"message\": \"User sucessfully updated\"}";
 	}
 	
 	@Override
@@ -51,9 +80,7 @@ public class UserDBRepository implements UserRepository {
 			return "{\"message\": \"User sucessfully deleted\"}";
 		} else
 			return "{\"message\": \"User not found\"}";
-	}
-	
-	
+	}	
 }
 
 

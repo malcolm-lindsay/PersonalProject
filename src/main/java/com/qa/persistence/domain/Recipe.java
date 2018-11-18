@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Recipes {
+public class Recipe {
 	
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,12 +33,12 @@ public class Recipes {
 	
 	@JoinColumn(name ="recipeID", referencedColumnName = "recipeID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Reviews> reviews;
+	private List<Review> reviews;
 	
-	public Recipes() {
+	public Recipe() {
 	}
 
-	public Recipes(Long recipeID, String recipeType, String dietryInformation,
+	public Recipe(Long recipeID, String recipeType, String dietryInformation,
 			int estimatedPreparationTime, int servingSize, String recipeInstructions) {
 		super();
 		this.RecipeID = recipeID;
@@ -97,11 +97,11 @@ public class Recipes {
 		RecipeInstructions = recipeInstructions;
 	}
 
-	public List<Reviews> getReviews() {
+	public List<Review> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Reviews> reviews) {
+	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 }

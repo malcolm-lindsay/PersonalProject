@@ -17,18 +17,18 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public String createReview(Long userID, Long recipeID, String review) {
-		return repo.createReview(userID, recipeID, review);
+	public String createReview(String review) {
+		return repo.createReview(review);
 	}
 
 	@Override
-	public String EditReview(Long userID, Long recipeID, String updatedReview) {
-		return repo.EditReview(userID, recipeID, updatedReview);
+	public String EditReview(String updatedReview, Long reviewID) {
+		return repo.EditReview(reviewID, updatedReview);
 	}
 
 	@Override
-	public String deleteReview(Long userID, Long recipeID) {
-		return repo.deleteReview(userID, recipeID);
+	public String deleteReview(Long reviewID) {
+		return repo.deleteReview(reviewID);
 	
 	}
 }

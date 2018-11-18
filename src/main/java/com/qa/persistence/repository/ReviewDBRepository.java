@@ -11,7 +11,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-import com.qa.persistence.domain.Reviews;
+
+import com.qa.persistence.domain.Recipe;
+import com.qa.persistence.domain.Review;
+import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
@@ -26,28 +29,36 @@ public class ReviewDBRepository implements ReviewRepository {
 
 	@Override
 	public String getAllReviews() {
-		Query query = manager.createQuery("Select a FROM Reviews a");
-		Collection<Reviews> Reviews = (Collection<Reviews>) query.getResultList();
+		Query query = manager.createQuery("Select a FROM Review a");
+		Collection<Review> Reviews = (Collection<Review>) query.getResultList();
 		return util.getJSONForObject(Reviews);
 	}
 
-
 	@Override
-	public String createReview(Long userID, Long recipeID, String review) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String createReview(String review) {
+		Review aReview = util.getObjectForJSON(review, Review.class);
+		manager.persist(aReview);
+		return "{\"message\": \"Review has been successfully added\"}";
+	}
+	
+	
+	@Override
+	@Transactional(REQUIRED)
+	public String EditReview(Long reviewID, String updatedReview) {
+		Review newReview = util.getObjectForJSON(updatedReview, Review.class);
+		Review oldReview = manager.find(Review.class, reviewID);
+		return "{\"message\": \"Review sucessfully edited\"}";
 	}
 
 	@Override
-	public String EditReview(Long userID, Long recipeID, String updatedReview) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String deleteReview(Long userID, Long recipeID) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String deleteReview(Long reviewID) {
+		if (manager.find(Review.class, reviewID) != null) {
+			manager.remove(manager.find(Review.class, reviewID));
+			return "{\"message\": \"Review sucessfully deleted\"}";
+		} else
+			return "{\"message\": \"Review not found\"}";
 	}
 
 }

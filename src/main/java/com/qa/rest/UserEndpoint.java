@@ -26,9 +26,8 @@ public class UserEndpoint {
 	@Path("/addUser")
 	@POST
 	@Produces({ "application/json" })
-	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int yearOfBirth) {
-		return service.addUser(userID, firstName, secondName, dietryRequirements,country, city, emailAddress, yearOfBirth);
+	public String addUser(String User) {
+		return service.addUser(User);
 	}
 	
 //	{ 
@@ -42,7 +41,13 @@ public class UserEndpoint {
 //	"yearOfBirth": 1994)  
 //	}
 
-
+	
+	@Path("/updateUser/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateUser(@PathParam("id") Long userID, String user) {
+		return service.updateUser(userID, user);
+	}
 
 	
 	

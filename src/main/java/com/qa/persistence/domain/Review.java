@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Reviews {
+public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +26,11 @@ public class Reviews {
 	private Long recipeID;
 
 	
-	public Reviews() {
+	public Review() {
 
 	}
 
-	public Reviews(int yearOfReview, Long recipeID, Long userID,String review) {
+	public Review(int yearOfReview, Long recipeID, Long userID,String review) {
 		this.yearOfReview = yearOfReview;
 		this.recipeID= recipeID;
 		this.userID = userID;

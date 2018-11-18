@@ -4,11 +4,10 @@ public interface UserService {
 
 	String getAllUsers();
 
-	String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int yearOfBirth);
+	String addUser(String user);
 
-	String updateUser(Long id);
+	String updateUser(Long userID, String user);
 
-	String deleteUser(Long id);
+	String deleteUser(Long userID);
 
 }

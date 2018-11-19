@@ -1,17 +1,13 @@
 package com.qa.persistence.repository;
-
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 import java.util.Collection;
-
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import com.qa.persistence.domain.Recipe;
 import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
@@ -32,16 +28,6 @@ public class UserDBRepository implements UserRepository {
 		return util.getJSONForObject(User);
 	}
 	
-
-	
-//	@Override
-//	@Transactional(REQUIRED)
-//	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-//			String country, String city, String emailAddress, int yearOfBirth) {
-//		User aUser = util.getObjectForJSON(user, Recipe.class);
-//		manager.persist(user);
-//		return "{\"message\": \"Recipe has been successfully added\"}";
-//	}
 	
 //	For testing: 
 //	{
@@ -69,6 +55,15 @@ public class UserDBRepository implements UserRepository {
 	public String updateUser(Long userID, String user) {
 		User newUser = util.getObjectForJSON(user, User.class);
 		User oldUser = manager.find(User.class, userID);
+		
+		oldUser.setFirstName(newUser.getFirstName());
+		oldUser.setSecondName(newUser.getSecondName());
+		oldUser.setDietryRequirements(newUser.getDietryRequirements());
+		oldUser.setCountry(newUser.getCountry());
+		oldUser.setCity(newUser.getCity());
+		oldUser.setEmailAddress(newUser.getEmailAddress());
+		oldUser.setYearOfBirth(newUser.getYearOfBirth());
+
 		return "{\"message\": \"User sucessfully updated\"}";
 	}
 	

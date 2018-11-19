@@ -1,7 +1,6 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -77,7 +76,7 @@ public class User {
 	}
 
 	public void setDietryRequirements(String dietryRequirements) {
-		dietryRequirements = dietryRequirements;
+		this.dietryRequirements = dietryRequirements;
 	}
 
 	public String getCountry() {
@@ -85,7 +84,7 @@ public class User {
 	}
 
 	public void setCountry(String country) {
-		Country = country;
+		this.Country = country;
 	}
 
 	public String getCity() {
@@ -93,7 +92,7 @@ public class User {
 	}
 
 	public void setCity(String city) {
-		City = city;
+		this.City = city;
 	}
 
 	public String getEmailAddress() {

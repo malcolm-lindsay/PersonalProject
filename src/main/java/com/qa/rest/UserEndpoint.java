@@ -60,7 +60,6 @@ public class UserEndpoint {
 	}
 	 
 	
-//	String updateUser(Long userID);
 
 	
 	

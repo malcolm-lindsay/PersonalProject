@@ -39,8 +39,6 @@ public class User {
 
 	public User(Long userID, String firstName, String secondName, String dietryRequirements,
 			String country, String city, String emailAddress, int yearOfBirth) {
-		super();
-		this.userID = userID;
 		this.firstName = firstName;
 		this.secondName = secondName;
 		this.dietryRequirements = dietryRequirements;

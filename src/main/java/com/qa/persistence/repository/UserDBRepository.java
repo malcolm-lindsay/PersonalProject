@@ -59,7 +59,7 @@ public class UserDBRepository implements UserRepository {
 	@Transactional(REQUIRED)
 	public String addUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
-		manager.persist(user);
+		manager.persist(aUser);
 		return "{\"message\": \"User has been successfully added\"}";
 	}
 	

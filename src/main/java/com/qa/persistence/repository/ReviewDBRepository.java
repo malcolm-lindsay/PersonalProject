@@ -1,20 +1,14 @@
 package com.qa.persistence.repository;
-
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 import java.util.Collection;
-
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
-import com.qa.persistence.domain.Recipe;
 import com.qa.persistence.domain.Review;
-import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
@@ -42,12 +36,18 @@ public class ReviewDBRepository implements ReviewRepository {
 		return "{\"message\": \"Review has been successfully added\"}";
 	}
 	
-	
 	@Override
 	@Transactional(REQUIRED)
 	public String EditReview(Long reviewID, String updatedReview) {
 		Review newReview = util.getObjectForJSON(updatedReview, Review.class);
 		Review oldReview = manager.find(Review.class, reviewID);
+		
+		oldReview.setReview(newReview.getReview());
+		oldReview.setYearOfReview(newReview.getYearOfReview());
+		oldReview.setRating(newReview.getRating());
+		oldReview.setUserID(newReview.getUserID());
+		oldReview.setRecipeID(newReview.getRecipeID());
+		
 		return "{\"message\": \"Review sucessfully edited\"}";
 	}
 
@@ -60,7 +60,6 @@ public class ReviewDBRepository implements ReviewRepository {
 		} else
 			return "{\"message\": \"Review not found\"}";
 	}
-
 }
 
 

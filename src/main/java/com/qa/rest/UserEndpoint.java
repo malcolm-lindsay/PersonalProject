@@ -30,6 +30,7 @@ public class UserEndpoint {
 		return service.addUser(User);
 	}
 	
+//	For testing
 //	{ 
 //	"userID" : 1, 
 //	"firstName": Joseph, 

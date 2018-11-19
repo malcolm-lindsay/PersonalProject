@@ -1,5 +1,4 @@
 package com.qa.service.business;
-
 import javax.inject.Inject;
 
 import org.apache.log4j.Logger;

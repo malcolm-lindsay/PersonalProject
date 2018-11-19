@@ -27,15 +27,14 @@ public class Review {
 
 	
 	public Review() {
-
 	}
 
-	public Review(int yearOfReview, Long recipeID, Long userID,String review) {
+	public Review(int yearOfReview, Long recipeID, Long userID,String review, long rating) {
 		this.yearOfReview = yearOfReview;
 		this.recipeID= recipeID;
 		this.userID = userID;
 		this.review = review;
-		
+		this.rating = rating;
 	}
 
 	public Long getReviewID() {

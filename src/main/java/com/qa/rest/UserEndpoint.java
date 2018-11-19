@@ -55,7 +55,7 @@ public class UserEndpoint {
 	@Path("/deleteUser/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteser(@PathParam("userID") Long userID) {
+	public String deleteUser(@PathParam("id") Long userID) {
 		return service.deleteUser(userID);
 	}
 	 

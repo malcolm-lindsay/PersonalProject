@@ -21,15 +21,14 @@ public class Recipe {
 	@Column(name = "recipeID")
 	private Long RecipeID;
 	@Column(length = 10)
-	private String RecipeType;
+	private String recipeName;
 	@Column(length = 10)
-	private String DietryInformation;
+	private String recipeType;
 	@Column(length = 10)
-	private int EstimatedPreparationTime;
+	private String dietryInformation;
 	@Column(length = 10)
-	private int ServingSize;
-	@Column(length = 10)
-	private String RecipeInstructions;	
+	private int servingSize;
+
 	
 	@JoinColumn(name ="recipeID", referencedColumnName = "recipeID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -38,15 +37,12 @@ public class Recipe {
 	public Recipe() {
 	}
 
-	public Recipe(Long recipeID, String recipeType, String dietryInformation,
-			int estimatedPreparationTime, int servingSize, String recipeInstructions) {
-		super();
-		this.RecipeID = recipeID;
-		this.RecipeType = recipeType;
-		this.DietryInformation = dietryInformation;
-		this.EstimatedPreparationTime = estimatedPreparationTime;
-		this.ServingSize = servingSize;
-		this.RecipeInstructions = recipeInstructions;
+	public Recipe(String recipeName, String recipeType,
+			int estimatedPreparationTime, int servingSize) {
+		this.recipeName = recipeName;
+		this.recipeType = recipeType;
+		this.dietryInformation = dietryInformation;
+		this.servingSize = servingSize;
 	}
 
 	public Long getRecipeID() {
@@ -57,44 +53,36 @@ public class Recipe {
 		RecipeID = recipeID;
 	}
 
+	public String getRecipeName() {
+		return recipeName;
+	}
+
+	public void setRecipeName(String recipeName) {
+		this.recipeName = recipeName;
+	}
+
 	public String getRecipeType() {
-		return RecipeType;
+		return recipeType;
 	}
 
 	public void setRecipeType(String recipeType) {
-		RecipeType = recipeType;
+		this.recipeType = recipeType;
 	}
 
 	public String getDietryInformation() {
-		return DietryInformation;
+		return dietryInformation;
 	}
 
 	public void setDietryInformation(String dietryInformation) {
-		DietryInformation = dietryInformation;
-	}
-
-	public int getEstimatedPreparationTime() {
-		return EstimatedPreparationTime;
-	}
-
-	public void setEstimatedPreparationTime(int estimatedPreparationTime) {
-		EstimatedPreparationTime = estimatedPreparationTime;
+		this.dietryInformation = dietryInformation;
 	}
 
 	public int getServingSize() {
-		return ServingSize;
+		return servingSize;
 	}
 
 	public void setServingSize(int servingSize) {
-		ServingSize = servingSize;
-	}
-
-	public String getRecipeInstructions() {
-		return RecipeInstructions;
-	}
-
-	public void setRecipeInstructions(String recipeInstructions) {
-		RecipeInstructions = recipeInstructions;
+		this.servingSize = servingSize;
 	}
 
 	public List<Review> getReviews() {

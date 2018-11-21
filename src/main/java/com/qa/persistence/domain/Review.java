@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Review {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long reviewID;
 	@Column(length = 10)
 	private String review;
@@ -19,6 +19,9 @@ public class Review {
 	private int yearOfReview;
 	@Column(length = 10)
 	private Long rating;
+	
+	//Field for recipe name 
+	
 	
 	@Column(name = "userID")
 	private Long userID;
@@ -35,7 +38,6 @@ public class Review {
 		this.recipeID= recipeID;
 		this.userID = userID;
 		this.review = review;
-		
 	}
 
 	public Long getReviewID() {

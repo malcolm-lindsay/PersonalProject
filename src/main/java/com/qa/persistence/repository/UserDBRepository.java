@@ -32,17 +32,6 @@ public class UserDBRepository implements UserRepository {
 		return util.getJSONForObject(User);
 	}
 	
-
-	
-//	@Override
-//	@Transactional(REQUIRED)
-//	public String addUser(Long userID, String firstName, String secondName, String dietryRequirements,
-//			String country, String city, String emailAddress, int yearOfBirth) {
-//		User aUser = util.getObjectForJSON(user, Recipe.class);
-//		manager.persist(user);
-//		return "{\"message\": \"Recipe has been successfully added\"}";
-//	}
-	
 //	For testing: 
 //	{
 //	"userID": 1,
@@ -59,7 +48,7 @@ public class UserDBRepository implements UserRepository {
 	@Transactional(REQUIRED)
 	public String addUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
-		manager.persist(user);
+		manager.persist(aUser);
 		return "{\"message\": \"User has been successfully added\"}";
 	}
 	

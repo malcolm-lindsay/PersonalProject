@@ -24,6 +24,14 @@ public class RecipesEndpoint {
 		return service.getAllRecipes();
 	}
 	
+	
+	@Path("/updateRecipe/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateRecipe(@PathParam("id") Long recipeID, String recipe) {
+		return service.updateRecipe(recipeID, recipe);
+	}
+	
 	@Path("/createRecipe")
 	@POST
 	@Produces({ "application/json" })
@@ -34,12 +42,7 @@ public class RecipesEndpoint {
 	@Path("/deleteRecipe/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteRecipe(@PathParam("recipeID") Long recipeID) {
+	public String deleteRecipe(@PathParam("id") Long recipeID) {
 		return service.deleteRecipe(recipeID);
 	}
-		
-
-//	String updateRecipe(Long recipeID, String newRecipe);
-
-
 }

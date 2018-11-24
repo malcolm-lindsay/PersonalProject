@@ -1,7 +1,6 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,9 +36,10 @@ public class User {
 
 	}
 
-	public User(String firstName, String secondName, String dietryRequirements,
-			String country, String city, String emailAddress, int age) {
-		this.userName = firstName;
+
+	public User(String userName, String dietryRequirements,
+			String emailAddress, int age) {
+		this.userName = userName;
 		this.dietryRequirements = dietryRequirements;
 		this.emailAddress = emailAddress;
 		this.age = age;

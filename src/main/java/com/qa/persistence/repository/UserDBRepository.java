@@ -1,18 +1,13 @@
 package com.qa.persistence.repository;
-
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 import java.util.Collection;
-
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
-import com.qa.persistence.domain.Recipe;
 import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
@@ -58,6 +53,12 @@ public class UserDBRepository implements UserRepository {
 	public String updateUser(Long userID, String user) {
 		User newUser = util.getObjectForJSON(user, User.class);
 		User oldUser = manager.find(User.class, userID);
+		
+		oldUser.setUserName(newUser.getUserName());
+		oldUser.setDietryRequirements(newUser.getDietryRequirements());
+		oldUser.setEmailAddress(newUser.getEmailAddress());
+		oldUser.setAge(newUser.getAge());
+
 		return "{\"message\": \"User sucessfully updated\"}";
 	}
 	

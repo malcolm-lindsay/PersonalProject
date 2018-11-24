@@ -8,6 +8,6 @@ public interface ReviewRepository {
 		
 	String deleteReview(Long reviewID);
 
-	String EditReview(Long reviewID, String updatedReview);
+	String updateReview(Long reviewID, String updatedReview);
 
 }

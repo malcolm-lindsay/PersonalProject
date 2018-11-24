@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Review {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(length = 10)
 	private Long reviewID;
 	@Column(length = 10)
 	private String review;
@@ -20,24 +22,19 @@ public class Review {
 	@Column(length = 10)
 	private Long rating;
 	
-	//Field for recipe name 
-	
-	
-	@Column(name = "userID")
+	@JoinColumn(name = "userID")
 	private Long userID;
-	@Column(name = "recipeID")
+	@JoinColumn(name = "recipeID")
 	private Long recipeID;
 
 	
 	public Review() {
-
 	}
 
-	public Review(int yearOfReview, Long recipeID, Long userID,String review) {
+	public Review(int yearOfReview, String review, long rating) {
 		this.yearOfReview = yearOfReview;
-		this.recipeID= recipeID;
-		this.userID = userID;
 		this.review = review;
+		this.rating = rating;
 	}
 
 	public Long getReviewID() {

@@ -10,6 +10,4 @@ public interface RecipeService {
 
 	String deleteRecipe(Long recipeID);
 
-	//method for searching recipes, possibly methods to search by the properties such as dietry requirements
-
 }

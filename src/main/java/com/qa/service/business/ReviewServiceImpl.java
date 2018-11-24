@@ -22,8 +22,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public String EditReview(String updatedReview, Long reviewID) {
-		return repo.EditReview(reviewID, updatedReview);
+	public String updateReview(String updatedReview, Long reviewID) {
+		return repo.updateReview(reviewID, updatedReview);
 	}
 
 	@Override

@@ -1,10 +1,6 @@
 package com.qa.service.business;
-
 import javax.inject.Inject;
-
 import com.qa.persistence.repository.RecipeDBRepository;
-import com.qa.persistence.repository.RecipeRepository;
-
 public class RecipeServiceImpl implements RecipeService {
 
 	@Inject

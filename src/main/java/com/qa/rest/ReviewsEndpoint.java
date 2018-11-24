@@ -37,10 +37,12 @@ public class ReviewsEndpoint {
 	public String deleteReview(@PathParam("id") Long reviewID) {
 		return service.deleteReview(reviewID);
 	}
-	//^ this method needs to be checked
-
-
-//	String EditReview(Long userID, Long recipeID, String updatedReview);
-
+	
+	@Path("/updateReview/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateRecipe(@PathParam("id") Long reviewID, String review) {
+		return service.updateReview(review, reviewID);
+	}
 
 }

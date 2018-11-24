@@ -6,7 +6,7 @@ public interface ReviewService {
 
 	String createReview(String review);
 		
-	String EditReview(String updatedReview, Long reviewID);
+	String updateReview(String updatedReview, Long reviewID);
 
 	String deleteReview(Long reviewID);
 	

@@ -1,8 +1,6 @@
 package com.qa.persistence.repository;
-
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
-
 import java.util.Collection;
 
 import javax.enterprise.inject.Default;
@@ -13,7 +11,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import com.qa.persistence.domain.Recipe;
-import com.qa.persistence.domain.User;
 import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
@@ -32,9 +29,7 @@ public class RecipeDBRepository implements RecipeRepository {
 		Collection<Recipe> recipes = (Collection<Recipe>) query.getResultList();
 		return util.getJSONForObject(recipes);
 	}
-	
-	//^add logger
-	
+		
 	@Override
 	@Transactional(REQUIRED)
 	public String createRecipe(String recipe) {
@@ -42,7 +37,6 @@ public class RecipeDBRepository implements RecipeRepository {
 		manager.persist(aRecipe);
 		return "{\"message\": \"Recipe has been successfully added\"}";
 	}
-	
 
 	
 	@Override
@@ -50,11 +44,16 @@ public class RecipeDBRepository implements RecipeRepository {
 	public String updateRecipe(Long recipeID, String updatedRecipe) {
 		Recipe newRecipe = util.getObjectForJSON(updatedRecipe, Recipe.class);
 		Recipe oldRecipe = manager.find(Recipe.class, recipeID);
+		
+		oldRecipe.setRecipeName(newRecipe.getRecipeName());
+		oldRecipe.setRecipeType(newRecipe.getRecipeType());
+		oldRecipe.setServingSize(newRecipe.getServingSize());
+		oldRecipe.setDietryInformation(newRecipe.getDietryInformation());
+		
 		return "{\"message\": \"Recipe sucessfully updated\"}";
 	}
 	
 
-	
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteRecipe(Long recipeID) {
@@ -63,9 +62,6 @@ public class RecipeDBRepository implements RecipeRepository {
 			return "{\"message\": \"Recipe sucessfully deleted\"}";
 		} else
 			return "{\"message\": \"Recipe not found\"}";
-	}
-	
 		
+	}
 }
-
-

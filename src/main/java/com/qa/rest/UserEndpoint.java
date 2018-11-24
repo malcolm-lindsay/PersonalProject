@@ -30,6 +30,7 @@ public class UserEndpoint {
 		return service.addUser(User);
 	}
 	
+//	For testing
 //	{ 
 //	"userID" : 1, 
 //	"firstName": Joseph, 
@@ -48,20 +49,11 @@ public class UserEndpoint {
 	public String updateUser(@PathParam("id") Long userID, String user) {
 		return service.updateUser(userID, user);
 	}
-
-	
-	
 	
 	@Path("/deleteUser/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteser(@PathParam("userID") Long userID) {
+	public String deleteUser(@PathParam("id") Long userID) {
 		return service.deleteUser(userID);
-	}
-	 
-	
-//	String updateUser(Long userID);
-
-	
-	
+	}	
 }

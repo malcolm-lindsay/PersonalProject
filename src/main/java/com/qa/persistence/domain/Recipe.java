@@ -1,7 +1,5 @@
-
 package com.qa.persistence.domain;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,15 +17,16 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "recipeID")
-	private Long RecipeID;
+	private Long recipeID;
 	@Column(length = 10)
 	private String recipeName;
 	@Column(length = 10)
 	private String recipeType;
 	@Column(length = 10)
-	private String dietryInformation;
-	@Column(length = 10)
 	private int servingSize;
+	@Column(length = 10)
+	private String dietryInformation;
+
 
 	
 	@JoinColumn(name ="recipeID", referencedColumnName = "recipeID")
@@ -38,19 +37,19 @@ public class Recipe {
 	}
 
 	public Recipe(String recipeName, String recipeType,
-			int estimatedPreparationTime, int servingSize) {
+			int servingSize, String dietryInformation) {
 		this.recipeName = recipeName;
 		this.recipeType = recipeType;
-		this.dietryInformation = dietryInformation;
 		this.servingSize = servingSize;
+		this.dietryInformation = dietryInformation;
 	}
 
 	public Long getRecipeID() {
-		return RecipeID;
+		return recipeID;
 	}
 
-	public void setRecipeID(Long recipeID) {
-		RecipeID = recipeID;
+	public void setRecipeID(Long newID) {
+		recipeID = newID;
 	}
 
 	public String getRecipeName() {
@@ -83,6 +82,13 @@ public class Recipe {
 
 	public void setServingSize(int servingSize) {
 		this.servingSize = servingSize;
+	}
+			
+	@Override
+	public String toString() {
+		return "Recipe [ recipeName=" + recipeName + ", recipeType=" + recipeType
+				+ ", dietryInformation=" + dietryInformation + ", reviews=" + reviews
+				+ "]";
 	}
 
 	public List<Review> getReviews() {

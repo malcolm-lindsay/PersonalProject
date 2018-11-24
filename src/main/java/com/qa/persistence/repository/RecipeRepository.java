@@ -9,6 +9,4 @@ public interface RecipeRepository {
 	String updateRecipe(Long recipeID, String updatedRecipe);
 
 	String deleteRecipe(Long recipeID);
-
-	//method for searching recipes, possibly methods to search by the properties such as dietry requirements
 }

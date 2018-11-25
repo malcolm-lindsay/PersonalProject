@@ -23,10 +23,9 @@ public class User {
 	@Column(length = 10)
 	private String dietryRequirements;
 	@Column(length = 10)
-	private int phoneNumber;
+	private long phoneNumber;
 	@Column(length = 10)
 	private int age;
-
 	
 	@JoinColumn(name ="userID", referencedColumnName = "userID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -38,7 +37,7 @@ public class User {
 
 
 	public User(String userName, String dietryRequirements,
-			int phoneNumber, int age) {
+			long phoneNumber, int age) {
 		this.userName = userName;
 		this.dietryRequirements = dietryRequirements;
 		this.phoneNumber = phoneNumber;
@@ -61,11 +60,11 @@ public class User {
 		this.userName = userName;
 	}
 
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

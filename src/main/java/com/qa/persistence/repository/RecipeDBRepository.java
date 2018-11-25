@@ -53,7 +53,7 @@ public class RecipeDBRepository implements RecipeRepository {
 		return "{\"message\": \"Recipe sucessfully updated\"}";
 	}
 	
-
+	
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteRecipe(Long recipeID) {
@@ -61,7 +61,6 @@ public class RecipeDBRepository implements RecipeRepository {
 			manager.remove(manager.find(Recipe.class, recipeID));
 			return "{\"message\": \"Recipe sucessfully deleted\"}";
 		} else
-			return "{\"message\": \"Recipe not found\"}";
-		
+			return "{\"message\": \"Recipe not found\"}";	
 	}
 }

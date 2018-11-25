@@ -23,7 +23,7 @@ public class User {
 	@Column(length = 10)
 	private String dietryRequirements;
 	@Column(length = 10)
-	private String emailAddress;
+	private int phoneNumber;
 	@Column(length = 10)
 	private int age;
 
@@ -38,10 +38,10 @@ public class User {
 
 
 	public User(String userName, String dietryRequirements,
-			String emailAddress, int age) {
+			int phoneNumber, int age) {
 		this.userName = userName;
 		this.dietryRequirements = dietryRequirements;
-		this.emailAddress = emailAddress;
+		this.phoneNumber = phoneNumber;
 		this.age = age;
 	}
 
@@ -61,12 +61,12 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getEmailAddress() {
-		return emailAddress;
+	public int getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public int getAge() {

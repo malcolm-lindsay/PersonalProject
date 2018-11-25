@@ -27,18 +27,6 @@ public class UserDBRepository implements UserRepository {
 		return util.getJSONForObject(User);
 	}
 	
-//	For testing: 
-//	{
-//	"userID": 1,
-//	"firstName": "Malcolm",
-//	"secondName":"Lindsay",
-//	"dietryRequirements":"none",
-//	"country":"UK",
-//	"city":"UK", 
-//	emailAddress:"malcolm",
-//	"yearOfBirth": 1996
-//	}
-	
 	@Override
 	@Transactional(REQUIRED)
 	public String addUser(String user) {
@@ -56,7 +44,7 @@ public class UserDBRepository implements UserRepository {
 		
 		oldUser.setUserName(newUser.getUserName());
 		oldUser.setDietryRequirements(newUser.getDietryRequirements());
-		oldUser.setEmailAddress(newUser.getEmailAddress());
+		oldUser.setPhoneNumber(newUser.getPhoneNumber());
 		oldUser.setAge(newUser.getAge());
 
 		return "{\"message\": \"User sucessfully updated\"}";

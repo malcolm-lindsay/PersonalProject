@@ -30,19 +30,6 @@ public class UserEndpoint {
 		return service.addUser(User);
 	}
 	
-//	For testing
-//	{ 
-//	"userID" : 1, 
-//	"firstName": Joseph, 
-//	"secondName": Ware,
-//	"dietryRequirements": Vegan, 
-//	"country": UK, 
-//	"city": Shepton Mallet, 
-//	"emailAddress": saddfsdf, 
-//	"yearOfBirth": 1994)  
-//	}
-
-	
 	@Path("/updateUser/{id}")
 	@PUT
 	@Produces({ "application/json" })

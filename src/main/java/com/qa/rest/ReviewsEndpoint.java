@@ -44,5 +44,4 @@ public class ReviewsEndpoint {
 	public String updateRecipe(@PathParam("id") Long reviewID, String review) {
 		return service.updateReview(review, reviewID);
 	}
-
 }

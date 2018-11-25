@@ -82,13 +82,6 @@ public class Recipe {
 	public void setServingSize(int servingSize) {
 		this.servingSize = servingSize;
 	}
-			
-	@Override
-	public String toString() {
-		return "Recipe [ recipeName=" + recipeName + ", recipeType=" + recipeType
-				+ ", dietryInformation=" + dietryInformation + ", reviews=" + reviews
-				+ "]";
-	}
 
 	public List<Review> getReviews() {
 		return reviews;

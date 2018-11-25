@@ -27,7 +27,6 @@ public class Recipe {
 	@Column(length = 10)
 	private String dietryInformation;
 
-
 	
 	@JoinColumn(name ="recipeID", referencedColumnName = "recipeID")
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

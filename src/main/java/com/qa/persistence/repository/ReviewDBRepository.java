@@ -42,10 +42,9 @@ public class ReviewDBRepository implements ReviewRepository {
 		Review newReview = util.getObjectForJSON(updatedReview, Review.class);
 		Review oldReview = manager.find(Review.class, reviewID);
 		
-		oldReview.setReview(newReview.getReview());
+		oldReview.setnameOfRecipe(newReview.getnameOfRecipe());
 		oldReview.setYearOfReview(newReview.getYearOfReview());
 		oldReview.setRating(newReview.getRating());
-
 		
 		return "{\"message\": \"Review sucessfully edited\"}";
 	}

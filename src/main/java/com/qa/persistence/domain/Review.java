@@ -16,7 +16,7 @@ public class Review {
 	@Column(length = 10)
 	private Long reviewID;
 	@Column(length = 10)
-	private String review;
+	private String nameOfRecipe;
 	@Column(length = 10)
 	private int yearOfReview;
 	@Column(length = 10)
@@ -31,9 +31,9 @@ public class Review {
 	public Review() {
 	}
 
-	public Review(int yearOfReview, String review, long rating) {
+	public Review(int yearOfReview, String nameOfRecipe, long rating) {
 		this.yearOfReview = yearOfReview;
-		this.review = review;
+		this.nameOfRecipe = nameOfRecipe;
 		this.rating = rating;
 	}
 
@@ -45,12 +45,12 @@ public class Review {
 		this.reviewID = reviewID;
 	}
 
-	public String getReview() {
-		return review;
+	public String getnameOfRecipe() {
+		return nameOfRecipe;
 	}
 
-	public void setReview(String review) {
-		this.review = review;
+	public void setnameOfRecipe(String nameOfRecipe) {
+		this.nameOfRecipe = nameOfRecipe;
 	}
 
 	public int getYearOfReview() {
